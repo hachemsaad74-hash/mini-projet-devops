@@ -1,14 +1,8 @@
 const http = require('http');
-
 const server = http.createServer((req, res) => {
-    res.writeHead(200, {"Content-Type": "application/json"});
-    res.end(JSON.stringify({ message: "Application DevOps opérationnelle" }));
+res.writeHead(200, {"Content-Type": "application/json"});
+res.end(JSON.stringify({ message: "Application DevOps opérationnelle" }));
 });
-
-if (require.main === module) {
-    server.listen(3000, () => {
-        console.log("Serveur lancé sur le port 3000");
-    });
-}
-
-module.exports = server;
+server.listen(3000, () => {
+console.log("Serveur lancé sur le port 3000");
+});
