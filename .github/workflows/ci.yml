@@ -36,7 +36,7 @@ jobs:
           echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
 
       - name: Build image
-        run: docker build -t votrenom/mini-projet-devops:${{ github.sha }} .
+        run: docker build -t hamzajlailia/mini-projet-devops:${{ github.sha }} .
 
       - name: Push image
-        run: docker push votrenom/mini-projet-devops:${{ github.sha }}
+        run: docker push hamzajlailia/mini-projet-devops:${{ github.sha }}
