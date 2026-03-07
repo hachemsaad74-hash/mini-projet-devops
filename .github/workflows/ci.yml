@@ -13,6 +13,7 @@ uses: actions/checkout@v2
 - name: Installation Node.js
 uses: actions/setup-node@v2
 with:
+
 node-version: 18
 - name: Installation dépendances
 run: npm install
