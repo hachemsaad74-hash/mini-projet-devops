@@ -2,6 +2,17 @@
 
 Projet DevOps simple utilisant Node.js, Docker et GitHub Actions.
 
+## Description
+
+Ce projet est une API Node.js simple conteneurisée avec Docker et automatisée avec CI/CD grâce à GitHub Actions.
+
+L'objectif est de démontrer les bonnes pratiques DevOps :
+
+gestion du code avec GitHub
+
+conteneurisation avec Docker
+
+automatisation du pipeline avec GitHub Actions
 ## Technologies
 
 - Node.js
@@ -22,8 +33,11 @@ http://localhost:3000
 
 docker compose up -d
 
+Application :
+http://localhost:3000
+
 Prometheus :
 http://localhost:9090
 
 Grafana :
-http://localhost:3000
+http://localhost:3001

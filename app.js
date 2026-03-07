@@ -5,6 +5,10 @@ const server = http.createServer((req, res) => {
     res.end(JSON.stringify({ message: "Application DevOps opérationnelle" }));
 });
 
-server.listen(3000, () => {
-    console.log("Serveur lancé sur le port 3000");
-});
+if (require.main === module) {
+    server.listen(3000, () => {
+        console.log("Serveur lancé sur le port 3000");
+    });
+}
+
+module.exports = server;
