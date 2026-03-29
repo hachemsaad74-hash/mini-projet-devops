@@ -1,42 +1,22 @@
-name: CI/CD Pipeline
+name: Docker CI/CD
 
 on:
   push:
     branches: [ main ]
-  pull_request:
-    branches: [ main ]
 
 jobs:
-  build-test:
+  docker:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Récupération du code
+      - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Installation Node.js
-        uses: actions/setup-node@v2
-        with:
-          node-version: 18
+      - name: Login to Docker Hub
+        run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
 
-      - name: Installation dépendances
-        run: npm install
+      - name: Build Docker image
+        run: docker build -t ${{ secrets.DOCKER_USERNAME }}/mini-projet-devops .
 
-      - name: Tests
-        run: npm test
-
-  docker-deploy:
-    needs: build-test
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-
-      - name: Connexion Docker Hub
-        run: |
-          echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
-
-      - name: Build image
-        run: docker build -t hachem74/mini-projet-devops:${{ github.sha }} .
-
-      - name: Push image
-        run: docker push hachem74/mini-projet-devops:${{ github.sha }}
+      - name: Push Docker image
+        run: docker push ${{ secrets.DOCKER_USERNAME }}/mini-projet-devops

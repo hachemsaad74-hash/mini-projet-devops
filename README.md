@@ -1,43 +1,91 @@
-# Mini Projet DevOps
+🚀 Mini DevOps Project – Node.js API with CI/CD & Monitoring
+📌 Overview
 
-Projet DevOps simple utilisant Node.js, Docker et GitHub Actions.
+This project demonstrates a complete DevOps workflow by building, containerizing, deploying, and monitoring a simple Node.js API.
 
-## Description
+It covers modern practices used in real-world production environments:
 
-Ce projet est une API Node.js simple conteneurisée avec Docker et automatisée avec CI/CD grâce à GitHub Actions.
+Containerization
+Continuous Integration / Continuous Deployment (CI/CD)
+Monitoring & Observability
+🧱 Tech Stack
+Backend: Node.js
+Containerization: Docker
+CI/CD: GitHub Actions
+Monitoring: Prometheus & Grafana
+⚙️ Features
 
-L'objectif est de démontrer les bonnes pratiques DevOps :
+✅ REST API built with Node.js
+✅ Dockerized application
+✅ Automated CI/CD pipeline with GitHub Actions
+✅ Real-time monitoring with Prometheus
+✅ Visualization dashboards using Grafana
 
-gestion du code avec GitHub
+📁 Project Structure
+mini-projet-devops/
+│── app/
+│── Dockerfile
+│── docker-compose.yml
+│── .github/workflows/
+│── prometheus/
+│── grafana/
+│── README.md
 
-conteneurisation avec Docker
+🐳 Run with Docker
+🔹 Build the image
+docker build -t mini-devops-app .
 
-automatisation du pipeline avec GitHub Actions
-## Technologies
+🔹 Run the container
+docker run -p 3000:3000 mini-devops-app
 
-- Node.js
-- Docker
-- GitHub Actions
-- Prometheus
-- Grafana
 
-## Lancer l'application
+👉 Access the API:
 
-docker build -t mini-projet-devops .
-docker run -p 3000:3000 mini-projet-devops
-
-Accès :
 http://localhost:3000
 
-## Monitoring
+📊 Monitoring Setup
+
+Start all services (App + Monitoring):
 
 docker compose up -d
 
-Application :
-http://localhost:3000
+🔗 Services Access
+Service	URL
+Application	http://localhost:3000
 
-Prometheus :
-http://localhost:9090
+Prometheus	http://localhost:9090
 
-Grafana :
-http://localhost:3001
+Grafana	http://localhost:3001
+🔄 CI/CD Pipeline
+
+This project uses GitHub Actions to automate:
+
+Build Docker image
+Run tests
+Push image (optional)
+Deploy (optional)
+
+Workflow file:
+
+.github/workflows/main.yml
+
+📈 Monitoring Details
+Prometheus collects metrics from the Node.js app
+Grafana visualizes metrics via dashboards
+
+Example metrics:
+
+HTTP requests count
+Response time
+CPU & memory usage
+🧠 DevOps Concepts Covered
+Containerization with Docker
+Infrastructure as Code (Docker Compose)
+CI/CD automation
+Observability & monitoring
+Service orchestration
+🎯 Use Cases
+Learning DevOps basics
+Portfolio project for junior developers
+Fiverr / Freelance demo project
+CI/CD practice
